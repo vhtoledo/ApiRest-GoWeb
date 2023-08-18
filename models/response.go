@@ -14,7 +14,7 @@ type Response struct {
 	respWriter  http.ResponseWriter
 }
 
-//Crear una respuesta por defecto
+//Crear un respuesta por defecto
 func CreateDefaultResponse(rw http.ResponseWriter) Response {
 	return Response{
 		Status:      http.StatusOK,

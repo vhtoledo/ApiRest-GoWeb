@@ -7,35 +7,35 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-//creamos conexion a db
+//username:password@tcp(host:port)/database?charset=utf8
 const url = "root:123456@tcp(localhost:3306)/goweb_db"
 
-// Guardar la Conexion
+//Guarda la conexion
 var db *sql.DB
 
-// Realiza la conexion
-func Connect(){
+//Realizar lac conexion
+func Connect() {
 	conection, err := sql.Open("mysql", url)
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("Conexion Exitosa")
+	fmt.Println("Conexion exitosa")
 	db = conection
 }
 
-// Cierra la conexion
-func Close(){
+//Cerrar la Conexion
+func Close() {
 	db.Close()
 }
 
-// Verificar conexion
-func Ping(){
+//Verificar la conexion
+func Ping() {
 	if err := db.Ping(); err != nil {
 		panic(err)
 	}
 }
 
-// Verificar si una tabla existe o no
+//Ferificar si una tabla existe o no
 func ExistsTable(tableName string) bool {
 	sql := fmt.Sprintf("SHOW TABLES LIKE '%s'", tableName)
 	rows, err := db.Query(sql)
@@ -46,7 +46,7 @@ func ExistsTable(tableName string) bool {
 	return rows.Next()
 }
 
-// crea tabla usuarios
+//Crear una tabla en la base de datos
 func CreateTable(schema, name string) {
 
 	if !ExistsTable(name) {
@@ -82,5 +82,6 @@ func Query(query string, args ...interface{}) (*sql.Rows, error) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	return rows, err
+
+	return rows, nil
 }
