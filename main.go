@@ -1,7 +1,7 @@
 package main
 
 import (
-	"apirest/handlers"
+	"gorm/handlers"
 	"fmt"
 	"log"
 	"net/http"

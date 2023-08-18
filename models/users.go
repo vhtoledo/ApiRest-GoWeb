@@ -1,7 +1,7 @@
 package models
 
 import (
-	"apirest/db"
+	"gorm/db"
 )
 
 type User struct {

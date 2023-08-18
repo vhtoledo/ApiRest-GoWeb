@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"apirest/models"
+	"gorm/models"
 	"encoding/json"
 	"net/http"
 	"strconv"
